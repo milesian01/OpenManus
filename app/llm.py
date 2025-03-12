@@ -142,6 +142,7 @@ class LLM:
                     temperature=temperature or self.temperature,
                     stream=False,
                 )
+                logger.debug(f"LLM raw response: {response}")  # Log the full raw response
                 if not response.choices or not response.choices[0].message.content:
                     raise ValueError("Empty or invalid response from LLM")
                 return response.choices[0].message.content
@@ -157,12 +158,14 @@ class LLM:
 
             collected_messages = []
             async for chunk in response:
+                logger.debug(f"LLM streaming chunk: {chunk}")  # Log each chunk
                 chunk_message = chunk.choices[0].delta.content or ""
                 collected_messages.append(chunk_message)
                 print(chunk_message, end="", flush=True)
 
             print()  # Newline after streaming
             full_response = "".join(collected_messages).strip()
+            logger.debug(f"LLM full response: {full_response}")  # Log the full response
             if not full_response:
                 raise ValueError("Empty response from streaming LLM")
             return full_response
