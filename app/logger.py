@@ -26,7 +26,7 @@ def define_log_level(print_level="INFO", logfile_level="DEBUG", name: str = None
     return _logger
 
 
-logger = define_log_level()
+logger = define_log_level(print_level="DEBUG")
 
 
 if __name__ == "__main__":
