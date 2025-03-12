@@ -1,7 +1,7 @@
 [llm]
 model = "qwen2.5-coder:32b-instruct-q8_0"
 base_url = "http://192.168.50.250:30068"
-api_key = ""      # Leave blank if no API key is required
+api_key = "dummy"  # Use a placeholder value if no key is needed
 max_tokens = 4096
 temperature = 0.0
 
