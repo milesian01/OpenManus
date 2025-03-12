@@ -19,6 +19,9 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /app
 
+# Install Playwright browsers and their dependencies
+RUN npx playwright install-deps
+
 COPY requirements.txt .
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
