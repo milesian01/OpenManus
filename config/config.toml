@@ -1,0 +1,11 @@
+[llm]
+model = "qwen2.5-coder:32b-instruct-q8_0"
+base_url = "http://192.168.50.250:30068"
+api_key = ""      # Leave blank if no API key is required
+max_tokens = 4096
+temperature = 0.0
+
+#[llm.vision]
+#model = "claude-3-5-sonnet"
+#base_url = "https://api.openai.com/v1"
+#api_key = "sk-..."
